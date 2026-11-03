@@ -221,7 +221,7 @@ export function registerTools(server: McpServer, backend: Backend, opts: ToolOpt
         lab_id: z.string().describe("The lab id, e.g. lab-02-sqli."),
         code: z.string().min(1).max(50_000).describe("The complete fixed code."),
       },
-      annotations: { readOnlyHint: false, idempotentHint: true, openWorldHint: false },
+      annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     },
     async ({ lab_id, code }) =>
       guarded(async () => {

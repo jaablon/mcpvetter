@@ -1,0 +1,11 @@
+{
+  "name": "mcpvetter",
+  "version": "0.1.2",
+  "description": "Audit your MCP servers for poisoned tools and leaked secrets, and check AI-generated code for security flaws.",
+  "mcpServers": {
+    "mcpvetter": {
+      "command": "npx",
+      "args": ["-y", "mcpvetter@0.1.2", "serve"]
+    }
+  }
+}
