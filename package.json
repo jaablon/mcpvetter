@@ -1,0 +1,57 @@
+{
+  "name": "mcpvetter",
+  "version": "0.1.1",
+  "description": "Audit your MCP servers for poisoned tools, leaked secrets and risky configs. Local, no account, no telemetry.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "mcpvetter": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "security",
+    "scanner",
+    "claude",
+    "cursor",
+    "tool-poisoning"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "5.9.3",
+    "vitest": "^3.2.4"
+  },
+  "homepage": "https://mcpvetter.com",
+  "bugs": {
+    "url": "https://github.com/jaablon/mcpvetter/issues",
+    "email": "security@mcpvetter.com"
+  },
+  "mcpName": "com.mcpvetter/mcpvetter",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaablon/mcpvetter.git"
+  }
+}

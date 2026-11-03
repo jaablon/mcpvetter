@@ -1,0 +1,43 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.mcpvetter/mcpvetter",
+  "title": "MCPVetter",
+  "description": "Audit your MCP servers for poisoned tools and leaked secrets, and check AI-generated code for flaws.",
+  "websiteUrl": "https://mcpvetter.com",
+  "version": "0.1.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "mcpvetter",
+      "version": "0.1.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "serve"
+        }
+      ],
+      "environmentVariables": [
+        {
+          "name": "MCPVETTER_API_KEY",
+          "description": "Optional. Unlocks review_code, labs and patterns (free tier at mcpvetter.com/account). Scanner tools work without it.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcpvetter.com/mcp"
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/jaablon/mcpvetter",
+    "source": "github"
+  }
+}
