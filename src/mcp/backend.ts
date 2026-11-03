@@ -25,6 +25,10 @@ export interface LabCheck {
   mustNotTrigger: string[];
   mustMatch: { re: string; flags?: string; hint: string }[];
   mustNotMatch?: { re: string; flags?: string; hint: string }[];
+  /** Parts of the original app that must still be present, so a fragment cannot pass. */
+  mustKeep?: { re: string; flags?: string; hint: string }[];
+  /** Minimum non-whitespace characters: the submission must be the whole fixed snippet. */
+  minChars?: number;
 }
 
 export interface Lab {

@@ -55,13 +55,13 @@ To read tool descriptions, MCPVetter has to start each stdio server, exactly as 
 Claude Code:
 
 ```bash
-claude mcp add mcpvetter -- npx -y mcpvetter@0.1.2 serve
+claude mcp add mcpvetter -- npx -y mcpvetter@0.1.3 serve
 ```
 
 Cursor / VS Code / Claude Desktop (`mcpServers` or `servers`):
 
 ```json
-{ "mcpServers": { "mcpvetter": { "command": "npx", "args": ["-y", "mcpvetter@0.1.2", "serve"] } } }
+{ "mcpServers": { "mcpvetter": { "command": "npx", "args": ["-y", "mcpvetter@0.1.3", "serve"] } } }
 ```
 
 Then ask: "audit my MCP setup".

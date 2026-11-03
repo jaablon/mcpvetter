@@ -204,6 +204,16 @@ function loadJson<T>(dir: string): T[] {
 
 describe.skipIf(!hasContent)("lab content", () => {
   const labs = loadJson<Lab>("labs").sort((a, b) => a.number - b.number);
+
+  it("rejects one-line fragments instead of the whole fixed snippet", () => {
+    for (const lab of labs) {
+      const r = checkLab(lab.check, "const key = process.env.OPENAI_API_KEY;", lab.language);
+      expect(r.passed, lab.id).toBe(false);
+    }
+    const lab1 = labs.find((l) => l.id === "lab-01-secrets")!;
+    const gutted = lab1.solution.replace(/stripe/gi, "payments");
+    expect(checkLab(lab1.check, gutted, lab1.language).failures.join(" ")).toContain("Stripe");
+  });
   const ruleIds = new Set(CODE_RULES.map((r) => r.id));
 
   it("has the 10 labs from the spec, 2 free", () => {
